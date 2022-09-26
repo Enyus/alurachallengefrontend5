@@ -1,0 +1,13 @@
+.botao__transparente {
+    background: none;
+    color: var(--cor-botao-principal);
+    border: solid 1px var(--cor-botao-principal);
+    height: 40px;
+    width: 133px;
+    font-weight: 600;
+}
+
+.botao__zero {
+    background: none;
+    border: none;
+}

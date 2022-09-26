@@ -1,2 +1,3 @@
-# alurachallengefrontend5
-Repositório para conter os desafios do Alura Challenge Front-end 5, cujo objetivo e desenvolver o front da loja AluraGeek
+# Alura Challenge Front-end 5 - Alura Geek
+
+Este repositório guarda a minha versão da Alura Geek, desenvolvido no Alura Challenge Front-End 5, entre 26/09/2022 e XX.
