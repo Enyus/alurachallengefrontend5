@@ -3,6 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import Header from '../components/Header'
+import Banner from '../components/Banner'
 
 export default function Home() {
   return (
@@ -15,9 +16,17 @@ export default function Home() {
 
       <Header />
 
+      <Banner />
+
       <main className={styles.main}>
-        
+        <section>StarWars</section>
+        <section>Consoles</section>
+        <section>Diversos</section>
       </main>
+
+      <div>
+        FormContato
+      </div>
 
       <footer className={styles.footer}>
         

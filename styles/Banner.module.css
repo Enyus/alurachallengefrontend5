@@ -1,0 +1,35 @@
+.container {
+    width: 100%;
+    background: url('/banner_1x.png');
+    background-size: cover;
+    background-position: center;
+    color: var(--cor-texto-secundaria);
+    padding: 5.5rem 1.1rem 1.1rem;
+}
+
+.banner__titulo {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.banner__texto {
+    margin: 0;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 481px) {
+    .container {
+        background: url('/banner_2x.png');
+        padding: 11.5rem 2.3rem 1.2rem;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .container {
+        background: url('/banner_3x.png');
+        padding: 10rem 10rem 2rem;
+    }
+}

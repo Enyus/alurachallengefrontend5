@@ -7,7 +7,21 @@
     font-weight: 600;
 }
 
+.botao__transparente:hover {
+    background-color: var(--cor-botao-terciaria);
+}
+
 .botao__zero {
     background: none;
     border: none;
+}
+
+.botao__opaco {
+    background: none;
+    background-color: var(--cor-botao-principal);
+    color: var(--cor-texto-secundaria);
+    height: 40px;
+    width: 133px;
+    border: none;
+    font-weight: 600;
 }
