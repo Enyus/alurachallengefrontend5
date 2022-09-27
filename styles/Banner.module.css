@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    background: url('/banner_1x.png');
+    background-image: url('/banner_1x.png');
     background-size: cover;
     background-position: center;
     color: var(--cor-texto-secundaria);
@@ -22,14 +22,14 @@
 
 @media screen and (min-width: 481px) {
     .container {
-        background: url('/banner_2x.png');
+        background-image: url('/banner_2x.png');
         padding: 11.5rem 2.3rem 1.2rem;
     }
 }
 
 @media screen and (min-width: 769px) {
     .container {
-        background: url('/banner_3x.png');
+        background-image: url('/banner_3x.png');
         padding: 10rem 10rem 2rem;
     }
 }
