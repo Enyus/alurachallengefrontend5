@@ -13,15 +13,17 @@ function Header(props) {
 
     return (
         <header className={styles.header}>
-            <picture className={styles.logo}>
-                <source 
-                    srcSet='/alurageek_logo_2x.png' 
-                    media="(min-width: 769px)"
-                />
-                <img
-                    src='/alurageek_logo_1x.png'
-                />
-            </picture>
+            <a href='/' className={styles.logo}>
+                <picture>
+                    <source
+                        srcSet='/alurageek_logo_2x.png'
+                        media="(min-width: 769px)"
+                    />
+                    <img
+                        src='/alurageek_logo_1x.png'
+                    />
+                </picture>
+            </a>
 
             <Button
                 estilo='transparent'

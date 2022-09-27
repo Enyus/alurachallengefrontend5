@@ -1,0 +1,15 @@
+.lista_containter {
+    
+}
+
+.lista__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista__produtos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+}

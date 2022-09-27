@@ -1,0 +1,16 @@
+.main {
+    background-color: var(--cor-fundo-principal);
+    padding: 1.2rem;
+}
+
+@media screen and (min-width: 481px) {
+    .main {
+        padding: 2.3rem;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .main {
+        padding: 4rem 9.5rem;
+    }
+}

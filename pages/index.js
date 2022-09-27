@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css'
 
 import Header from '../components/Header'
 import Banner from '../components/Banner'
+import Main from '../components/Main'
+import ListaProdutos from '../components/ListaProdutos'
 
 export default function Home() {
   return (
@@ -18,18 +20,31 @@ export default function Home() {
 
       <Banner />
 
-      <main className={styles.main}>
-        <section>StarWars</section>
-        <section>Consoles</section>
-        <section>Diversos</section>
-      </main>
+      <Main>
+
+        <ListaProdutos
+          categoria='starwars'
+          label='Star Wars'
+        />
+
+        <ListaProdutos
+          categoria='consoles'
+          label='Consoles'
+        />
+
+        <ListaProdutos
+          categoria='diversos'
+          label='Diversos'
+        />
+
+      </Main>
 
       <div>
         FormContato
       </div>
 
       <footer className={styles.footer}>
-        
+
       </footer>
     </div>
   )

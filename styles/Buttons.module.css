@@ -5,6 +5,7 @@
     height: 40px;
     width: 133px;
     font-weight: 600;
+    transition: all 0.2s ease-in-out;
 }
 
 .botao__transparente:hover {
@@ -24,4 +25,9 @@
     width: 133px;
     border: none;
     font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.botao__opaco:hover {
+    background-color: var(--cor-botao-secundaria);
 }
