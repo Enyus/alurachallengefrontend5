@@ -6,7 +6,7 @@ function Button(props) {
 
     let estiloBotao
 
-    switch (props.type) {
+    switch (props.estilo) {
         case 'transparent':
             estiloBotao = styles.botao__transparente;
             break;
@@ -18,7 +18,11 @@ function Button(props) {
     }
 
     return (
-        <button className={estiloBotao}>
+        <button 
+            className={estiloBotao}
+            type={props.type}
+            onClick={props.onClick}
+        >
             {props.children}
         </button>
     );

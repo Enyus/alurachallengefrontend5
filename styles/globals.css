@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 :root {
   --cor-botao-principal: #2A7AE4;
   --cor-botao-secundaria: #5595E9;
@@ -23,4 +27,16 @@ a {
   --cor-texto-principal: #464646;
   --cor-texto-secundaria: #FFFFFF;
   font-size: 14px;
+}
+
+@media screen and (min-width: 481px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  :root {
+    font-size: 16px;
+  }
 }

@@ -1,26 +1,37 @@
 import React from 'react';
 
-import { FaSearch } from 'react-icons/fa';
+import Button from './Button';
+import Search from './Search'
 
 import styles from '../styles/Header.module.css';
-import Button from './Button';
 
 function Header(props) {
+
+    function handleLogin(event) {
+        console.log('login')
+    }
+
     return (
         <header className={styles.header}>
-            <img src='/alurageek_logo_1x.png'/>
+            <picture className={styles.logo}>
+                <source 
+                    srcSet='/alurageek_logo_2x.png' 
+                    media="(min-width: 769px)"
+                />
+                <img
+                    src='/alurageek_logo_1x.png'
+                />
+            </picture>
 
-            <Button 
-                type='transparent'
+            <Button
+                estilo='transparent'
+                type='button'
+                onClick={handleLogin}
             >
                 Login
             </Button>
 
-            <Button
-                type='styleless'
-            >
-                <FaSearch size={24} />
-            </Button>
+            <Search />
 
         </header>
     );

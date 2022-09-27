@@ -8,3 +8,19 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.logo {
+    order: -2;
+}
+
+@media screen and (min-width: 481px) {
+    .header {
+        padding: 0 2.3rem;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .header {
+        padding: 0 9.5rem;
+    }
+}
