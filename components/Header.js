@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from './Button';
 import Search from './Search'
+import Link from 'next/link';
 
 import styles from '../styles/Header.module.css';
 
@@ -13,17 +14,19 @@ function Header(props) {
 
     return (
         <header className={styles.header}>
-            <a href='/' className={styles.logo}>
-                <picture>
-                    <source
-                        srcSet='/alurageek_logo_2x.png'
-                        media="(min-width: 769px)"
-                    />
-                    <img
-                        src='/alurageek_logo_1x.png'
-                    />
-                </picture>
-            </a>
+            <Link href='/'>
+                <a className={styles.logo}>
+                    <picture>
+                        <source
+                            srcSet='/alurageek_logo_2x.png'
+                            media="(min-width: 769px)"
+                        />
+                        <img
+                            src='/alurageek_logo_1x.png'
+                        />
+                    </picture>
+                </a>
+            </Link>
 
             <Button
                 estilo='transparent'

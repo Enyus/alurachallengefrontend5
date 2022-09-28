@@ -1,15 +1,30 @@
-.lista_containter {
-    
-}
-
 .lista__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.lista__link {
+    margin: 0;
+    font-weight: 700;
+    color: var(--cor-botao-principal);
+}
+
 .lista__produtos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     flex-wrap: wrap;
+    gap: 1.1rem;
+}
+
+@media screen and (min-width: 481px) {
+    .lista__produtos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .lista__produtos {
+        grid-template-columns: repeat(6, 1fr);
+    }
 }

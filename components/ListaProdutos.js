@@ -1,23 +1,72 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import produtos from '../fakeDB/produtos';
 
 import CardProduto from './CardProduto';
+import Link from 'next/link';
 
 import styles from '../styles/ListaProdutos.module.css';
 
 function ListaProdutos(props) {
+
+    function useWindowSize() {
+        const [windowSize, setWindowSize] = useState({
+            width: undefined,
+            height: undefined,
+        });
+
+        useEffect(() => {
+            if (typeof window !== 'undefined') {
+                function handleResize() {
+                    setWindowSize({
+                        width: window.innerWidth,
+                        height: window.innerHeight,
+                    });
+                }
+
+                window.addEventListener("resize", handleResize);
+
+                handleResize();
+
+                return () => window.removeEventListener("resize", handleResize);
+            }
+        }, []);
+        return windowSize;
+    }
+
+    let deviceWidth
+    let maxItens
+
+    if (typeof window !== 'undefined') {
+        deviceWidth = useWindowSize().width;
+
+        if (deviceWidth < 1024) {
+            maxItens = 4;
+        } else {
+            maxItens = 6;
+        }
+    }
+
+    let produtosMostrados = produtos.filter(produto => produto.categoria == props.categoria);
+
+    while (produtosMostrados.length > maxItens) {
+        produtosMostrados.pop();
+    }
+
 
     return (
         <section className={styles.lista_containter}>
             <div className={styles.lista__header}>
                 <h2>{props.label}</h2>
 
-                <a>Ver tudo</a>
+                <Link href=''>
+                    <a className={styles.lista__link}>Ver tudo</a>
+                </Link>
             </div>
 
             <div className={styles.lista__produtos}>
-                {produtos.map(produto => {
-                    if (produto.categoria == props.categoria) {
+                {
+                    produtosMostrados.map(produto => {
                         return (
                             <CardProduto
                                 imagem={produto.imagens[0]}
@@ -25,8 +74,8 @@ function ListaProdutos(props) {
                                 preco={produto.preco}
                             />
                         )
-                    }
-                })}
+                    })
+                }
             </div>
 
         </section>

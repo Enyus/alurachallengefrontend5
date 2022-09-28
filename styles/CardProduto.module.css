@@ -1,0 +1,23 @@
+.card__img {
+    width: 100%;
+}
+
+.card__text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cor-texto-primaria);
+    margin: 0.6rem 0;
+}
+
+.card__preco {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 0.6rem;
+}
+
+.card__link {
+    margin: 0;
+    font-weight: 700;
+    color: var(--cor-botao-principal);
+}
