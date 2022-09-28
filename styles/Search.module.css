@@ -28,6 +28,7 @@
 
     .form {
         order: -1;
+        margin: 0 auto 0 2rem;
     }
 
     .botao__busca {
@@ -42,6 +43,7 @@
 
     .form {
         order: -1;
+        margin: 0 auto 0 2rem;
     }
 
     .botao__busca {
