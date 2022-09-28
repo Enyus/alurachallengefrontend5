@@ -37,14 +37,12 @@ function ListaProdutos(props) {
     let deviceWidth
     let maxItens
 
-    if (typeof window !== 'undefined') {
-        deviceWidth = useWindowSize().width;
+    deviceWidth = useWindowSize().width;
 
-        if (deviceWidth < 1024) {
-            maxItens = 4;
-        } else {
-            maxItens = 6;
-        }
+    if (deviceWidth < 1024) {
+        maxItens = 4;
+    } else {
+        maxItens = 6;
     }
 
     let produtosMostrados = produtos.filter(produto => produto.categoria == props.categoria);
@@ -72,6 +70,7 @@ function ListaProdutos(props) {
                                 imagem={produto.imagens[0]}
                                 nome={produto.produto}
                                 preco={produto.preco}
+                                key={produto.id}
                             />
                         )
                     })
