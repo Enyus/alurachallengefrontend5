@@ -69,7 +69,8 @@
     color: var(--cor-texto-principal);
 }
 
-.form__input:focus-visible {
+.form__input:focus-visible,
+.form__textarea:focus-visible {
     outline: none;
 }
 

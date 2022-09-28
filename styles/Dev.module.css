@@ -1,0 +1,11 @@
+.dev__container {
+    width: 100%;
+    text-align: center;
+    padding: 2.3rem;
+}
+
+.dev__link, .dev__text {
+    margin: 0;
+    color: var(--cor-texto-principal);
+    font-weight: 500;
+}

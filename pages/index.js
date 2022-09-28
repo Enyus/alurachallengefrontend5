@@ -7,6 +7,7 @@ import Banner from '../components/Banner'
 import Main from '../components/Main'
 import ListaProdutos from '../components/ListaProdutos'
 import Footer from '../components/Footer'
+import Dev from '../components/Dev'
 
 export default function Home() {
   return (
@@ -42,9 +43,8 @@ export default function Home() {
 
       <Footer />
 
-      <footer className={styles.footer}>
-
-      </footer>
+      <Dev />
+      
     </div>
   )
 }

@@ -10,7 +10,11 @@ function Footer(props) {
         <footer className={styles.footer__container}>
 
             <div className={styles.footer__subcontainer}>
-                <img src='/alurageek_logo_2x.png' className={styles.footer__logo} />
+                <Link href='/'>
+                    <a className={styles.footer__logo}>
+                        <img src='/alurageek_logo_2x.png' />
+                    </a>
+                </Link>
 
                 <ul className={styles.footer__lista}>
 
