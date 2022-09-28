@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import Banner from '../components/Banner'
 import Main from '../components/Main'
 import ListaProdutos from '../components/ListaProdutos'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
@@ -39,9 +40,7 @@ export default function Home() {
 
       </Main>
 
-      <div>
-        FormContato
-      </div>
+      <Footer />
 
       <footer className={styles.footer}>
 
