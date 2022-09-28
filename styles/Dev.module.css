@@ -2,6 +2,7 @@
     width: 100%;
     text-align: center;
     padding: 2.3rem;
+    background-color: var(--cor-texto-secundaria);
 }
 
 .dev__link, .dev__text {
