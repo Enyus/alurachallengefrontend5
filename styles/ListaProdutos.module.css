@@ -8,6 +8,10 @@
     margin: 0;
     font-weight: 700;
     color: var(--cor-botao-principal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(5rem + 10px);
 }
 
 .lista__produtos {

@@ -4,6 +4,7 @@ import produtos from '../fakeDB/produtos';
 
 import CardProduto from './CardProduto';
 import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa'
 
 import styles from '../styles/ListaProdutos.module.css';
 
@@ -58,7 +59,10 @@ function ListaProdutos(props) {
                 <h2>{props.label}</h2>
 
                 <Link href=''>
-                    <a className={styles.lista__link}>Ver tudo</a>
+                    <a className={styles.lista__link}>
+                        Ver tudo
+                        <FaArrowRight />
+                    </a>
                 </Link>
             </div>
 
