@@ -28,6 +28,7 @@ export default function Login(props) {
             <Button 
                 type='submit'
                 onClick={()=>{}}
+                largura='partiallargo'
             >
                 Entrar
             </Button>

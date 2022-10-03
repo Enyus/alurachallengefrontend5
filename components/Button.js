@@ -17,6 +17,16 @@ function Button(props) {
             estiloBotao = styles.botao__opaco;
     }
 
+    switch(props.largura) {
+        case 'fulllargo':
+            estiloBotao += ' ' + styles.botao__largo;
+            break
+        case 'partiallargo':
+            estiloBotao += ' ' + styles.botao__parciallargo
+        default:
+            estiloBotao
+    }
+
     return (
         <button 
             className={estiloBotao}

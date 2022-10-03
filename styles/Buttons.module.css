@@ -31,3 +31,13 @@
 .botao__opaco:hover {
     background-color: var(--cor-botao-secundaria);
 }
+
+.botao__largo {
+    width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+    .botao__parciallargo {
+        width: 100%;
+    }
+}
