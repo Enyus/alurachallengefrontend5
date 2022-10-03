@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 
 import styles from '../styles/FormLogin.module.css';
 import Button from './Button';
@@ -9,7 +10,8 @@ export default function Login(props) {
         event.preventDefault();
         
         console.log('tentou fazer login')
-        return
+        
+        Router.push('produtos')
     }
 
     return(
