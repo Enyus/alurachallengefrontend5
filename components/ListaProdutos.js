@@ -36,16 +36,14 @@ function ListaProdutos(props) {
         }, []);
         return windowSize;
     }
+    let deviceWidth = useWindowSize().width;
 
     // Quais produtos serão mostrados:
     let produtosMostrados
 
     if (props.categoria != '') {
 
-        let deviceWidth
         let maxItens
-
-        deviceWidth = useWindowSize().width;
 
         if (deviceWidth < 1024) {
             maxItens = 4;
