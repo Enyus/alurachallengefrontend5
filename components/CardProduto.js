@@ -20,7 +20,7 @@ function CardProduto(props) {
                 R$ {(props.preco/100).toFixed(2)}
             </p>
 
-            <Link href=''>
+            <Link href={`/produto/${props.idProduto}`} >
                 <a className={styles.card__link}>
                     Ver produto
                 </a>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import Router from 'next/router';
 import produtos from '../../fakeDB/produtos';
 
 import Head from 'next/head';

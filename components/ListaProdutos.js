@@ -92,6 +92,10 @@ function ListaProdutos(props) {
         )
     }
 
+    if (props.label == 'Produtos Similares') {
+        botaoRenderizadoLista = ''
+    }
+
     return (
         <section className={styles.lista_containter}>
             <div className={styles.lista__header}>
@@ -109,6 +113,7 @@ function ListaProdutos(props) {
                                 nome={produto.produto}
                                 preco={produto.preco}
                                 key={produto.id}
+                                idProduto={produto.id}
                             />
                         )
                     })

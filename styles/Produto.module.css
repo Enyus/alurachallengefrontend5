@@ -1,5 +1,10 @@
 @import url('./Home.module.css');
 
+.produto__container {
+    display: flex;
+    flex-direction: column;
+}
+
 .imagem__produto {
     position: relative;
     width: 100vw;
@@ -34,7 +39,7 @@
 
 @media screen and (min-width: 481px) {
     .produto__container {
-        display: flex;
+        flex-direction: row;
         gap: 1.2rem;
         margin-bottom: 1.2rem;
     }

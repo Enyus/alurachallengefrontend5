@@ -16,7 +16,11 @@ Este repositório guarda a minha versão da Alura Geek, desenvolvido no Alura Ch
 Decidi fazer o desafio usando ReactJs e NextJs.
 
 - **Semana 1:** Elaborar a Página Home da Alura Geek. ✅
-![preview](https://i.imgur.com/3gr5Nn4.jpg)
-- **Semana 2:** 
+![preview Home](https://i.imgur.com/3gr5Nn4.jpg)
+- **Semana 2:** Elaborar as páginas Login, Todos os Produtos, Adicionar Produto e Página Produto
+![preview Login](https://i.imgur.com/2sStaKv.png)
+![preview Todos os Produtos](https://i.imgur.com/xZbil86.png)
+![preview Adicionar Produto](https://i.imgur.com/UpxKQeT.png)
+![preview Página Produto](https://i.imgur.com/GKtkTiH.png)
 - **Semana 3:** 
 - **Semana 4:** 
