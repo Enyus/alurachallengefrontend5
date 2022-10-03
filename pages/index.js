@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useState } from 'react'
 
 import styles from '../styles/Home.module.css'
 
@@ -10,6 +11,8 @@ import Footer from '../components/Footer'
 import Dev from '../components/Dev'
 
 export default function Home() {
+  let [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +21,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <Header />
+      <Header 
+        logged = {loggedIn}
+      />
 
       <Banner />
 

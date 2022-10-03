@@ -8,6 +8,22 @@ import styles from '../styles/Header.module.css';
 
 function Header(props) {
 
+    let loginButton = '';
+
+    if (!props.logged) {
+        loginButton = (
+            <Link href='/login'>
+                <Button
+                    estilo='transparent'
+                    type='button'
+                    onClick={handleLogin}
+                >
+                    Login
+                </Button>
+            </Link>
+        )
+    }
+
     function handleLogin(event) {
         console.log('login')
     }
@@ -28,13 +44,7 @@ function Header(props) {
                 </a>
             </Link>
 
-            <Button
-                estilo='transparent'
-                type='button'
-                onClick={handleLogin}
-            >
-                Login
-            </Button>
+            {loginButton}
 
             <Search />
 
