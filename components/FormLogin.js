@@ -1,10 +1,11 @@
 import React from 'react';
 import Router from 'next/router';
 
-import styles from '../styles/FormLogin.module.css';
 import Button from './Button';
 
-export default function Login(props) {
+import styles from '../styles/FormLogin.module.css';
+
+export default function FormLogin(props) {
 
     function handleSubmitLogin(event) {
         event.preventDefault();

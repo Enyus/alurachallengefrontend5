@@ -1,0 +1,56 @@
+.form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    max-width: 560px;
+}
+
+.form__titulo {
+    margin: 0;
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+
+.form__label {
+    width: 100%;
+    background-color: var(--cor-texto-secundaria);
+    padding: 0.6rem 0.85rem 0;
+    border-radius: 0.3rem 0.3rem 0 0;
+    color: var(--cor-texto-terciaria);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.form__input {
+    width: 100%;
+    font-size: 1.2rem;
+    height: 2.9rem;
+    margin-bottom: 1.2rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0 0 4px 4px;
+    border-bottom: 1px solid #c8c8c8;
+    color: var(--cor-texto-principal);
+}
+
+.form__input:focus-visible,
+.form__descricao:focus-visible {
+    outline: none;
+}
+
+.form__descricao {
+    width: 100%;
+    height: 6rem;
+    background-color: var(--cor-texto-secundaria);
+    padding: 0.6rem 0.85rem;
+    border: none;
+    border-bottom: solid 1px #C8C8C8;
+    border-radius: 0.3rem;
+    color: var(--cor-texto-principal);
+    font-size: 1.2rem;
+    font-weight: 400;
+    resize: none;
+    margin-bottom: 0.6rem;
+}
