@@ -12,6 +12,7 @@ import styles from '../styles/Home.module.css';
 
 export default function Produtos() {
     let [loggedIn, setLoggedIn] = useState(true);
+    let [admLoggedIn, setAdmLoggedIn] = useState(true);
 
     return (
         <div className={styles.container}>
@@ -23,6 +24,7 @@ export default function Produtos() {
 
             <Header
                 logged={loggedIn}
+                adm={admLoggedIn}
             />
 
             <Main>

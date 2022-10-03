@@ -16,7 +16,7 @@ function Header(props) {
                 <Button
                     estilo='transparent'
                     type='button'
-                    onClick={handleLogin}
+                    onClick={()=>{}}
                 >
                     Login
                 </Button>
@@ -24,8 +24,18 @@ function Header(props) {
         )
     }
 
-    function handleLogin(event) {
-        console.log('login')
+    if (props.adm) {
+        loginButton = (
+            <Link href='/produtos'>
+                <Button
+                    estilo='transparent'
+                    type='button'
+                    onClick={()=>{}}
+                >
+                    Menu administrador
+                </Button>
+            </Link>
+        )
     }
 
     return (

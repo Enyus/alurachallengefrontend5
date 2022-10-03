@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import { useState } from 'react'
 
-import styles from '../styles/Home.module.css'
-
 import Header from '../components/Header'
 import Banner from '../components/Banner'
 import Main from '../components/Main'
 import ListaProdutos from '../components/ListaProdutos'
 import Footer from '../components/Footer'
 import Dev from '../components/Dev'
+
+import styles from '../styles/Home.module.css'
 
 export default function Home() {
   let [loggedIn, setLoggedIn] = useState(false);

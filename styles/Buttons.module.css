@@ -3,7 +3,7 @@
     color: var(--cor-botao-principal);
     border: solid 1px var(--cor-botao-principal);
     height: 40px;
-    width: 133px;
+    min-width: 133px;
     font-weight: 600;
     transition: all 0.2s ease-in-out;
 }
