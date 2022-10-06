@@ -1,30 +1,57 @@
 import React from 'react';
 
 import Link from 'next/link';
+import { FaPen } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 import styles from '../styles/CardProduto.module.css';
 
 function CardProduto(props) {
+    let mostrarOpcoesAdm = ''
+
+    if (props.opcoesAdm) {
+        mostrarOpcoesAdm = (
+            <div className={styles.opcoesadm__container}>
+                <Link href='#'>
+                    <button className={styles.opcoesadm__botao}>
+                        <FaPen size={24} color='#FFF' />
+                    </button>
+                </Link>
+
+                <Link href='#'>
+                    <button className={styles.opcoesadm__botao}>
+                        <FaTrash size={24} color='#FFF' />
+                    </button>
+                </Link>
+            </div>
+        )
+    }
+
     return (
         <div className={styles.card__container}>
-            <img
-                src={props.imagem}
-                className={styles.card__img}
-            />
+            
+            {mostrarOpcoesAdm}
 
-            <h3 className={styles.card__text}>
-                {props.nome}
-            </h3>
+            <div>
+                <img
+                    src={props.imagem}
+                    className={styles.card__img}
+                />
 
-            <p className={styles.card__preco}>
-                R$ {(props.preco/100).toFixed(2)}
-            </p>
+                <h3 className={styles.card__text}>
+                    {props.nome}
+                </h3>
 
-            <Link href={`/produto/${props.idProduto}`} >
-                <a className={styles.card__link}>
-                    Ver produto
-                </a>
-            </Link>
+                <p className={styles.card__preco}>
+                    R$ {(props.preco / 100).toFixed(2)}
+                </p>
+
+                <Link href={`/produto/${props.idProduto}`} >
+                    <a className={styles.card__link}>
+                        Ver produto
+                    </a>
+                </Link>
+            </div>
 
         </div>
     )

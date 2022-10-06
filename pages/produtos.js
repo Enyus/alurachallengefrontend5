@@ -30,6 +30,7 @@ export default function Produtos() {
                 <ListaProdutos
                     categoria=''
                     label='Todos os produtos'
+                    opcoesAdm={true}
                 />
 
             </Main>

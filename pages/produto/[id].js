@@ -52,6 +52,8 @@ export default function Produto() {
             <ListaProdutos
                 label='Produtos Similares'
                 categoria={produtoDB[0].categoria}
+                opcoesAdm={false}
+                filtrar={produtoDB[0].id}
             />
         )
     } else {

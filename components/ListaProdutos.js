@@ -6,6 +6,7 @@ import Router from 'next/router';
 import CardProduto from './CardProduto';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa'
+
 import Button from './Button';
 
 import styles from '../styles/ListaProdutos.module.css';
@@ -52,6 +53,11 @@ function ListaProdutos(props) {
         }
 
         produtosMostrados = produtos.filter(produto => produto.categoria == props.categoria);
+        
+        if(props.filtrar) {
+            let indiceFiltrado = produtosMostrados.findIndex(produto => produto.id == props.filtrar);
+            produtosMostrados.splice(indiceFiltrado, 1)
+        }
 
         while (produtosMostrados.length > maxItens) {
             produtosMostrados.pop();
@@ -108,13 +114,15 @@ function ListaProdutos(props) {
                 {
                     produtosMostrados.map(produto => {
                         return (
-                            <CardProduto
-                                imagem={produto.imagens[0]}
-                                nome={produto.produto}
-                                preco={produto.preco}
-                                key={produto.id}
-                                idProduto={produto.id}
-                            />
+                                <CardProduto
+                                    imagem={produto.imagens[0]}
+                                    nome={produto.produto}
+                                    preco={produto.preco}
+                                    key={produto.id}
+                                    idProduto={produto.id}
+                                    opcoesAdm={props.opcoesAdm}
+                                />
+
                         )
                     })
                 }

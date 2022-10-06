@@ -32,16 +32,19 @@ export default function Home() {
         <ListaProdutos
           categoria='starwars'
           label='Star Wars'
+          opcoesAdm={false}
         />
 
         <ListaProdutos
           categoria='consoles'
           label='Consoles'
+          opcoesAdm={false}
         />
 
         <ListaProdutos
           categoria='diversos'
           label='Diversos'
+          opcoesAdm={false}
         />
 
       </Main>
