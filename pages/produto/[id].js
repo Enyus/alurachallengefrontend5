@@ -13,7 +13,7 @@ import styles from '../../styles/Produto.module.css'
 import ListaProdutos from '../../components/ListaProdutos';
 
 export default function Produto() {
-    let [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(true);
 
     const router = useRouter()
     const { id } = router.query

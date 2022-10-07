@@ -11,7 +11,7 @@ import Dev from '../components/Dev';
 import styles from '../styles/Home.module.css';
 
 export default function Login() {
-    let [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(true);
 
     return (
         <div className={styles.container}>

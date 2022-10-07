@@ -11,8 +11,8 @@ import Dev from '../components/Dev';
 import styles from '../styles/Home.module.css';
 
 export default function Produtos() {
-    let [loggedIn, setLoggedIn] = useState(true);
-    let [admLoggedIn, setAdmLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(true);
+    const [admLoggedIn, setAdmLoggedIn] = useState(true);
 
     return (
         <div className={styles.container}>
