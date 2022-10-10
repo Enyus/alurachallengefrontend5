@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'next/router';
 
-import Button from './Button';
+import Botao from './Botao';
 
 import styles from '../styles/FormLogin.module.css';
 
@@ -26,13 +26,13 @@ export default function FormLogin(props) {
 
             <input type='password' name='password' placeholder='Escreva sua senha' className={styles.login__input} />
 
-            <Button 
+            <Botao 
                 type='submit'
                 onClick={()=>{}}
                 largura='partiallargo'
             >
                 Entrar
-            </Button>
+            </Botao>
 
         </form>
     )

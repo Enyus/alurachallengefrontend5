@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'next/router';
 
-import Button from './Button';
+import Botao from './Botao';
 
 import styles from '../styles/FormAddProduto.module.css';
 
@@ -37,13 +37,13 @@ export default function FormAddProduto(props) {
 
             <textarea className={styles.form__descricao} name='descricao' id='descricao' placeholder='Descricao do produto' />
 
-            <Button
+            <Botao
                 type='submit'
                 onClick={() => { }}
                 largura='fulllargo'
             >
                 Adicionar Produto
-            </Button>
+            </Botao>
 
         </form>
     )
