@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Header from '../components/Header'
 import Banner from '../components/Banner'
@@ -21,8 +21,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <Header 
-        logged = {loggedIn}
+      <Header
+        logged={loggedIn}
       />
 
       <Banner />
@@ -52,7 +52,7 @@ export default function Home() {
       <Footer />
 
       <Dev />
-      
+
     </div>
   )
 }

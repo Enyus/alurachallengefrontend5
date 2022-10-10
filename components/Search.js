@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FaSearch } from 'react-icons/fa';
-import Button from './Button';
+import Botao from './Botao';
 
 import styles from '../styles/Search.module.css';
 
@@ -20,7 +20,7 @@ function Search(props) {
                 placeholder='O que deseja encontrar?'
             />
 
-            <Button
+            <Botao
                 estilo='styleless'
                 type='button'
             >
@@ -28,7 +28,7 @@ function Search(props) {
                     <FaSearch size={24} color='gray' />
                 </div>
 
-            </Button>
+            </Botao>
         </form>
     )
 }

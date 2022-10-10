@@ -33,6 +33,23 @@ button {
   font-size: 14px;
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
 @media screen and (min-width: 481px) {
   :root {
     font-size: 14px;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from './Button';
+import Botao from './Botao';
 import Link from 'next/link';
 
 import styles from '../styles/Footer.module.css';
@@ -66,12 +66,12 @@ function Footer(props) {
 
                 <textarea name='mensagem' className={styles.form__textarea} placeholder='Escreva sua mensagem' />
 
-                <Button
+                <Botao
                     type='submit'
                     onClick={() => { }}
                 >
                     Enviar Mensagem
-                </Button>
+                </Botao>
             </form>
 
         </footer>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from '../styles/Buttons.module.css';
 
-function Button(props) {
+function Botao(props) {
 
     let estiloBotao
 
@@ -38,4 +38,4 @@ function Button(props) {
     );
 }
 
-export default Button;
+export default Botao;

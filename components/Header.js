@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from './Button';
+import Botao from './Botao';
 import Search from './Search'
 import Link from 'next/link';
 
@@ -13,13 +13,13 @@ function Header(props) {
     if (!props.logged) {
         loginButton = (
             <Link href='/login'>
-                <Button
+                <Botao
                     estilo='transparent'
                     type='button'
                     onClick={()=>{}}
                 >
                     Login
-                </Button>
+                </Botao>
             </Link>
         )
     }
@@ -27,13 +27,13 @@ function Header(props) {
     if (props.adm) {
         loginButton = (
             <Link href='/produtos'>
-                <Button
+                <Botao
                     estilo='transparent'
                     type='button'
                     onClick={()=>{}}
                 >
                     Menu administrador
-                </Button>
+                </Botao>
             </Link>
         )
     }

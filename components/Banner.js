@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from '../styles/Banner.module.css';
-import Button from './Button';
+import Botao from './Botao';
 
 function Banner(props) {
 
@@ -20,9 +20,9 @@ function Banner(props) {
                 Produtos selecionados com 33% de desconto
             </p>
 
-            <Button>
+            <Botao>
                 Ver Consoles
-            </Button>
+            </Botao>
 
         </div>
     );

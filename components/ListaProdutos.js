@@ -1,73 +1,42 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import produtos from '../fakeDB/produtos';
 import Router from 'next/router';
 
 import CardProduto from './CardProduto';
 import Link from 'next/link';
-import { FaArrowRight } from 'react-icons/fa'
-
-import Button from './Button';
+import { FaArrowRight, FaSpinner } from 'react-icons/fa'
+import Botao from './Botao';
 
 import styles from '../styles/ListaProdutos.module.css';
 
 function ListaProdutos(props) {
+    const [produtos, setProdutos] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    function useWindowSize() {
-        const [windowSize, setWindowSize] = useState({
-            width: undefined,
-            height: undefined,
-        });
+    useEffect(() => {
 
-        useEffect(() => {
-            if (typeof window !== 'undefined') {
-                function handleResize() {
-                    setWindowSize({
-                        width: window.innerWidth,
-                        height: window.innerHeight,
-                    });
-                }
+        const res = async () => {
+            const data = await fetch("/api/carregarProdutos", {
+                body: JSON.stringify({
+                    categoria: props.categoria
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                method: "POST",
+            });
 
-                window.addEventListener("resize", handleResize);
+            const json = await data.json()
 
-                handleResize();
-
-                return () => window.removeEventListener("resize", handleResize);
-            }
-        }, []);
-        return windowSize;
-    }
-    let deviceWidth = useWindowSize().width;
-
-    // Quais produtos serão mostrados:
-    let produtosMostrados
-
-    if (props.categoria != '') {
-
-        let maxItens
-
-        if (deviceWidth < 1024) {
-            maxItens = 4;
-        } else {
-            maxItens = 6;
+            setProdutos(json.data)
         }
 
-        produtosMostrados = produtos.filter(produto => produto.categoria == props.categoria);
-        
-        if(props.filtrar) {
-            let indiceFiltrado = produtosMostrados.findIndex(produto => produto.id == props.filtrar);
-            produtosMostrados.splice(indiceFiltrado, 1)
-        }
+        res()
+            .catch(console.error);
 
-        while (produtosMostrados.length > maxItens) {
-            produtosMostrados.pop();
-        }
+        setIsLoading(false);
 
-    } else {
-
-        produtosMostrados = produtos;
-
-    }
+    }, [])
 
     // Qual botão será renderizado:
     function handleButtonAddProduto() {
@@ -89,17 +58,47 @@ function ListaProdutos(props) {
         )
     } else {
         botaoRenderizadoLista = (
-            <Button
+            <Botao
                 type='button'
                 onClick={handleButtonAddProduto}
             >
                 Adicionar Produto
-            </Button>
+            </Botao>
         )
     }
 
     if (props.label == 'Produtos Similares') {
         botaoRenderizadoLista = ''
+    }
+
+    // Função para filtrar os produtos por categoria, se necessário
+    function handleMostraProduto() {
+        let produtosMostrados
+
+        if (props.categoria != '') {
+            produtosMostrados = produtos.filter(produto => produto.categoria == props.categoria);
+
+            if (props.filtrar) {
+                let indiceFiltrado = produtosMostrados.findIndex(produto => produto.id == props.filtrar);
+                produtosMostrados.splice(indiceFiltrado, 1)
+            }
+        } else {
+            produtosMostrados = produtos;
+        }
+
+        return produtosMostrados.map(produto => {
+            return (
+                <CardProduto
+                    imagem={produto.imagens[0].url}
+                    nome={produto.produto}
+                    preco={produto.preco}
+                    key={produto.id}
+                    idProduto={produto.id}
+                    opcoesAdm={props.opcoesAdm}
+                />
+
+            )
+        })
     }
 
     return (
@@ -111,21 +110,7 @@ function ListaProdutos(props) {
             </div>
 
             <div className={styles.lista__produtos}>
-                {
-                    produtosMostrados.map(produto => {
-                        return (
-                                <CardProduto
-                                    imagem={produto.imagens[0]}
-                                    nome={produto.produto}
-                                    preco={produto.preco}
-                                    key={produto.id}
-                                    idProduto={produto.id}
-                                    opcoesAdm={props.opcoesAdm}
-                                />
-
-                        )
-                    })
-                }
+                { !isLoading ? handleMostraProduto() : <div className='loading'><FaSpinner size={24} /></div> }
             </div>
 
         </section>
