@@ -72,7 +72,7 @@ function ListaProdutos(props) {
     }
 
     // Função para filtrar os produtos por categoria, se necessário
-    function handleMostraProduto() {
+    function handleMostrarProdutos() {
         let produtosMostrados
 
         if (props.categoria != '') {
@@ -110,7 +110,7 @@ function ListaProdutos(props) {
             </div>
 
             <div className={styles.lista__produtos}>
-                { !isLoading ? handleMostraProduto() : <div className='loading'><FaSpinner size={24} /></div> }
+                { !isLoading ? handleMostrarProdutos() : <div className='loading'><FaSpinner size={24} /></div> }
             </div>
 
         </section>
