@@ -1,10 +1,14 @@
 import { supabase } from "../../utils/supaBaseClient";
 
 export default async function carregarProdutos(req, res) {
+    const {id} = req.body
+
+    console.log(req.body)
 
     let { data, error } = await supabase
         .from('produtos')
         .select('*, imagens(url)')
+        .eq('id', id)
 
     // console.log(data); // [] se não achar
     // console.log(error); // null se não achar

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { supabase } from "../../utils/supaBaseClient";
 
 import Head from 'next/head';
 import Header from '../../components/Header';
@@ -12,42 +13,23 @@ import { FaSpinner } from 'react-icons/fa'
 import styles from '../../styles/Produto.module.css'
 import ListaProdutos from '../../components/ListaProdutos';
 
-export default function Produto() {
+export default function Produto(props) {
     const [loggedIn, setLoggedIn] = useState(true);
-    const [isLoading, setIsLoading] = useState(true);
-    const [produtos, setProdutos] = useState([]);
 
     const router = useRouter();
     const { id } = router.query;
 
-    useEffect(() => {
-
-        const res = async () => {
-            const data = await fetch("/api/carregarProdutoUnico", {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                method: "POST",
-            });
-
-            const json = await data.json()
-
-            setProdutos(json)
-
-            setIsLoading(false);
-        }
-
-        res()
-            .catch(console.error);
-    }, [])
-
     let produtosSimilares = '';
-
-    // Pesquisando o Banco de Dados:
 
     function handleMostrarProduto() {
 
         let produtoMostrado
+
+        console.log(props.data)
+
+        let produtos = props.data.filter( item => item.id == id)
+
+        console.log(produtos)
 
         //Testando se o produto foi encontrado no Banco de dados
         if (produtos.length > 0) {
@@ -107,7 +89,7 @@ export default function Produto() {
 
             <Main>
 
-                {isLoading ? <div className='loading'><FaSpinner size={24} /></div> : handleMostrarProduto()}
+                {handleMostrarProduto()}
 
                 {produtosSimilares}
 
@@ -118,4 +100,17 @@ export default function Produto() {
             <Dev />
         </div>
     )
+}
+
+export async function getServerSideProps() {
+    let { data, error } = await supabase
+        .from('produtos')
+        .select('*, imagens(url)')
+
+    if (error) {
+        console.log(error);
+        return res.status(401).json({ error: error.message })
+    }
+
+    return { props: { data } }
 }
