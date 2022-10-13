@@ -27,7 +27,7 @@
     color: var(--cor-botao-principal);
 }
 
-.opcoesadm__container {
+div.card__container div.opcoesadm__container {
     display: flex;
     position: relative;
     justify-content: flex-end;

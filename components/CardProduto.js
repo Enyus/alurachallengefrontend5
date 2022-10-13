@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../pages/_app';
 
 import Link from 'next/link';
-import { FaPen } from 'react-icons/fa';
-import { FaTrash } from 'react-icons/fa';
+import { FaPen, FaTrash } from 'react-icons/fa';
 
 import styles from '../styles/CardProduto.module.css';
 
 function CardProduto(props) {
+    const { user } = useContext(UserContext);
+
     let mostrarOpcoesAdm = ''
 
-    if (props.opcoesAdm) {
+    if (user != '') {
         mostrarOpcoesAdm = (
             <div className={styles.opcoesadm__container}>
                 <Link href='#'>

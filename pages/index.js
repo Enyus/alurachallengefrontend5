@@ -1,17 +1,15 @@
-import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import Head from 'next/head';
 
-import Header from '../components/Header'
-import Banner from '../components/Banner'
-import Main from '../components/Main'
-import ListaProdutos from '../components/ListaProdutos'
-import Footer from '../components/Footer'
-import Dev from '../components/Dev'
+import Header from '../components/Header';
+import Banner from '../components/Banner';
+import Main from '../components/Main';
+import ListaProdutos from '../components/ListaProdutos';
+import Footer from '../components/Footer';
+import Dev from '../components/Dev';
 
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
-  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -21,9 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <Header
-        logged={loggedIn}
-      />
+      <Header />
 
       <Banner />
 
@@ -32,19 +28,16 @@ export default function Home() {
         <ListaProdutos
           categoria='starwars'
           label='Star Wars'
-          opcoesAdm={false}
         />
 
         <ListaProdutos
           categoria='consoles'
           label='Consoles'
-          opcoesAdm={false}
         />
 
         <ListaProdutos
           categoria='diversos'
           label='Diversos'
-          opcoesAdm={false}
         />
 
       </Main>

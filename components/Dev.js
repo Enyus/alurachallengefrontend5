@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Link from 'next/link';
-
 import styles from '../styles/Dev.module.css';
 
 function Dev(props) {

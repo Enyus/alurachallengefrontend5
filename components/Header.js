@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../pages/_app';
 
 import Botao from './Botao';
 import Search from './Search'
@@ -7,10 +8,11 @@ import Link from 'next/link';
 import styles from '../styles/Header.module.css';
 
 function Header(props) {
+    const{ user } = useContext(UserContext);
 
     let loginButton = '';
 
-    if (!props.logged) {
+    if (user == '') {
         loginButton = (
             <Link href='/login'>
                 <Botao
@@ -22,9 +24,7 @@ function Header(props) {
                 </Botao>
             </Link>
         )
-    }
-
-    if (props.adm) {
+    } else {
         loginButton = (
             <Link href='/produtos'>
                 <Botao
