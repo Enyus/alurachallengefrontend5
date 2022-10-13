@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from "../../utils/supaBaseClient";
+import produtos from "../../fakeDB/produtos"
 
 import Head from 'next/head';
 import Header from '../../components/Header';
@@ -103,13 +104,15 @@ export default function Produto(props) {
 }
 
 export async function getServerSideProps() {
+
     let { data, error } = await supabase
         .from('produtos')
         .select('*, imagens(url)')
 
     if (error) {
         console.log(error);
-        return res.status(401).json({ error: error.message })
+        data = produtos;
+        return { props: {data} };
     }
 
     return { props: { data } }

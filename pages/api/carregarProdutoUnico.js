@@ -1,5 +1,7 @@
 import { supabase } from "../../utils/supaBaseClient";
 
+// Não está funcionando
+
 export default async function carregarProdutos(req, res) {
     const {id} = req.body
 

@@ -21,6 +21,10 @@
     gap: 1.1rem;
 }
 
+.lista__produtos.show__all div {
+    display: inherit;
+}
+
 @media screen and (min-width: 481px) {
     .lista__produtos {
         grid-template-columns: repeat(4, 1fr);
@@ -30,5 +34,17 @@
 @media screen and (min-width: 1024px) {
     .lista__produtos {
         grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .lista__produtos :not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4)) {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .lista__produtos :not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(6)) {
+        display: none;
     }
 }

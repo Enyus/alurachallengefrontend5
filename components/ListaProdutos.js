@@ -17,9 +17,6 @@ function ListaProdutos(props) {
 
         const res = async () => {
             const data = await fetch("/api/carregarProdutos", {
-                body: JSON.stringify({
-                    categoria: props.categoria
-                }),
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -109,8 +106,12 @@ function ListaProdutos(props) {
                 {botaoRenderizadoLista}
             </div>
 
-            <div className={styles.lista__produtos}>
-                { !isLoading ? handleMostrarProdutos() : <div className='loading'><FaSpinner size={24} /></div> }
+            <div
+                className={props.categoria != '' ? styles.lista__produtos : styles.lista__produtos + ' ' + styles.show__all}
+            >
+
+                {!isLoading ? handleMostrarProdutos() : <div className='loading'><FaSpinner size={24} /></div>}
+
             </div>
 
         </section>

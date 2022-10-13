@@ -1,4 +1,5 @@
 import { supabase } from "../../utils/supaBaseClient";
+import produtos from "../../fakeDB/produtos"
 
 export default async function carregarProdutos(req, res) {
     let { data, error } = await supabase
@@ -10,7 +11,8 @@ export default async function carregarProdutos(req, res) {
 
     if (error) {
         console.log(error);
-        return res.status(401).json({ error: error.message })
+        data = produtos;
+        return res.status(401).json({ error: error.message, data})
     }
 
     return res.status(200).json({ data })

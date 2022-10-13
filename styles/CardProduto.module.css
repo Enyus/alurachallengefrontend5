@@ -40,15 +40,3 @@
     border: none;
     background: none;
 }
-
-@media screen and (max-width: 768px) {
-    .card__container:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4)) {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 769px) {
-    .card__container:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(6)) {
-        display: none;
-    }
-}

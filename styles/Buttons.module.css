@@ -32,6 +32,10 @@
     background-color: var(--cor-botao-secundaria);
 }
 
+.botao__opaco:disabled {
+    opacity: 50%;
+}
+
 .botao__largo {
     width: 100%;
 }

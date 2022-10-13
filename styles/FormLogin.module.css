@@ -27,12 +27,20 @@
     color: var(--cor-texto-principal);
 }
 
+.input__validated {
+    border-color: green;
+}
+
 .login__input:focus-visible {
     outline: none;
 }
 
 .login__input::placeholder {
     color: var(--cor-texto-terciaria);
+}
+
+.erro__input {
+    color: red;
 }
 
 
