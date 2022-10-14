@@ -1,6 +1,6 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Router from 'next/router';
+import { UserContext } from '../pages/_app';
 
 import CardProduto from './CardProduto';
 import Link from 'next/link';
@@ -10,6 +10,7 @@ import Botao from './Botao';
 import styles from '../styles/ListaProdutos.module.css';
 
 function ListaProdutos(props) {
+    const { user } = useContext(UserContext)
     const [produtos, setProdutos] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -42,7 +43,7 @@ function ListaProdutos(props) {
         Router.push('addProduto')
     }
 
-    let botaoRenderizadoLista
+    let botaoRenderizadoLista = ''
 
     if (props.categoria != '') {
         botaoRenderizadoLista = (
@@ -53,7 +54,9 @@ function ListaProdutos(props) {
                 </a>
             </Link>
         )
-    } else {
+    } 
+    
+    if (user != '') {
         botaoRenderizadoLista = (
             <Botao
                 type='button'
@@ -79,6 +82,8 @@ function ListaProdutos(props) {
                 let indiceFiltrado = produtosMostrados.findIndex(produto => produto.id == props.filtrar);
                 produtosMostrados.splice(indiceFiltrado, 1)
             }
+        } else if( props.busca) {
+            produtosMostrados = produtos.filter(produto => produto.produto.toLowerCase().indexOf(props.busca) != -1)
         } else {
             produtosMostrados = produtos;
         }

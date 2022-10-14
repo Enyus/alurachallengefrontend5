@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from "../../utils/supaBaseClient";
 import produtos from "../../fakeDB/produtos"
@@ -9,14 +8,11 @@ import Header from '../../components/Header';
 import Main from '../../components/Main';
 import Footer from '../../components/Footer';
 import Dev from '../../components/Dev';
-import { FaSpinner } from 'react-icons/fa'
 
 import styles from '../../styles/Produto.module.css'
 import ListaProdutos from '../../components/ListaProdutos';
 
 export default function Produto(props) {
-    const [loggedIn, setLoggedIn] = useState(true);
-
     const router = useRouter();
     const { id } = router.query;
 
@@ -26,11 +22,11 @@ export default function Produto(props) {
 
         let produtoMostrado
 
-        console.log(props.data)
+        // console.log(props.data)
 
         let produtos = props.data.filter( item => item.id == id)
 
-        console.log(produtos)
+        // console.log(produtos)
 
         //Testando se o produto foi encontrado no Banco de dados
         if (produtos.length > 0) {
@@ -84,9 +80,7 @@ export default function Produto(props) {
                 <link rel="icon" href="/favicon.png" />
             </Head>
 
-            <Header
-                logged={loggedIn}
-            />
+            <Header />
 
             <Main>
 

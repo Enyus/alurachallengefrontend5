@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import { FaSearch } from 'react-icons/fa';
 import Botao from './Botao';
@@ -6,10 +7,16 @@ import Botao from './Botao';
 import styles from '../styles/Search.module.css';
 
 function Search(props) {
+    const router = useRouter();
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log('submit')
+
+        const busca = document.getElementById('searched-text').value;
+
+        if (busca.length < 1) { return }
+
+        router.push(`/busca/${busca}`)
     }
 
     const handleSearchButton = (event) => {
