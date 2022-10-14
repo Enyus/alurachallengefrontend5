@@ -28,7 +28,7 @@ button {
   --cor-texto-secundaria: #FFFFFF;
   --cor-texto-terciaria: #A2A2A2;
   --cor-fundo-principal: #f5f5f5;
-  --cor-fundo-secundaria: var(var(--cor-botao-secundaria));
+  --cor-fundo-secundaria: var(--cor-botao-secundaria);
   --cor-fundo-terciaria: #EAF2FD;
   font-size: 14px;
 }

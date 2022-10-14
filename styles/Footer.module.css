@@ -89,6 +89,11 @@
     margin-bottom: 0.6rem;
 }
 
+.error {
+    color: red;
+    margin-top: 0;
+}
+
 @media screen and (min-width: 481px) {
     .footer__container {
         padding: 2.3rem;

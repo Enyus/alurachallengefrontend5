@@ -1,0 +1,7 @@
+.message__container {
+    background-color: var(--cor-texto-secundaria);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: solid 1px var(--cor-texto-terciaria);
+    margin-bottom: 2rem;
+}

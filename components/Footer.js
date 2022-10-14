@@ -1,81 +1,177 @@
-import React from 'react';
+import React, { useState } from "react";
+import { validateNomeFormContato } from "../utils/validateNomeFormContato";
+import { validateTextoFormContato } from "../utils/validateTextoFormContato";
 
-import Botao from './Botao';
-import Link from 'next/link';
+import Botao from "./Botao";
+import Link from "next/link";
+import { FaSpinner } from "react-icons/fa"
 
-import styles from '../styles/Footer.module.css';
+import styles from "../styles/Footer.module.css";
 
 function Footer(props) {
-    return (
-        <footer className={styles.footer__container}>
+  const [nomeValidated, setNomeValidated] = useState(null);
+  const [mensagemValidated, setMensagemValidated] = useState(null);
+  const [formValidated, setFormValidated] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [mensagem, setMensagem] = useState('')
 
-            <div className={styles.footer__subcontainer}>
-                <Link href='/'>
-                    <a className={styles.footer__logo}>
-                        <img src='/alurageek_logo_2x.png' />
-                    </a>
-                </Link>
+  const handleSubmitMensagem = async (event) => {
+    event.preventDefault();
+    setLoading(true)
 
-                <ul className={styles.footer__lista}>
+    console.log("mandou uma mensagem");
 
-                    <li>
-                        <Link href=''>
-                            <a>Quem somos nós</a>
-                        </Link>
-                    </li>
+    const nome = document.getElementById("formcontato-nome").value;
+    const texto = document.getElementById("formcontato-texto").value;
 
-                    <li>
-                        <Link href=''>
-                            <a>Política de privacidade</a>
-                        </Link>
-                    </li>
+    const res = await fetch("/api/cadastrarMensagem", {
+        body: JSON.stringify({
+          nome: nome,
+          message: texto,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+  
+      const result = await res.json();
+  
+      console.log(result);
+  
+      if (result.error) {
+        console.log(result.error);
+        return;
+      }
 
-                    <li>
-                        <Link href=''>
-                            <a>Programa fidelidade</a>
-                        </Link>
-                    </li>
+    document.getElementById("formcontato-nome").value = ''
+    document.getElementById("formcontato-texto").value = ''
+    setFormValidated(false);
+    setNomeValidated(null);
+    setMensagemValidated(null);
+    setMensagem('Mensagem enviada com sucesso');
+    setLoading(false)
+  };
 
-                    <li>
-                        <Link href=''>
-                            <a>Nossas lojas</a>
-                        </Link>
-                    </li>
+  const handleChangeNome = (event) => {
+    setNomeValidated(validateNomeFormContato(event.target.value));
+    setFormValidated(false);
+    setMensagem('');
+  };
 
-                    <li>
-                        <Link href=''>
-                            <a>Quero ser franqueado</a>
-                        </Link>
-                    </li>
+  const handleChangeText = (event) => {
+    setMensagemValidated(validateTextoFormContato(event.target.value));
+    setFormValidated(false);
+    setMensagem('');
+  };
 
-                    <li>
-                        <Link href=''>
-                            <a>Anuncie aqui</a>
-                        </Link>
-                    </li>
+  const checkValidation = (event) => {
+    setMensagem('');
+    if (nomeValidated && mensagemValidated) {
+      setFormValidated(true);
+    } else {
+      setFormValidated(false);
+    }
+  };
 
-                </ul>
-            </div>
+  return (
+    <footer className={styles.footer__container} onClick={checkValidation}>
+      <div className={styles.footer__subcontainer}>
+        <Link href="/">
+          <a className={styles.footer__logo}>
+            <img src="/alurageek_logo_2x.png" />
+          </a>
+        </Link>
 
-            <form className={styles.footer__formcontato}>
+        <ul className={styles.footer__lista}>
+          <li>
+            <Link href="/faleConosco">
+              <a>Mensagens</a>
+            </Link>
+          </li>
 
-                <h3 className={styles.form__titulo}>Fale Conosco</h3>
+          <li>
+            <Link href="">
+              <a>Política de privacidade</a>
+            </Link>
+          </li>
 
-                <label htmlFor='formcontato-nome' className={styles.form__label}>Nome</label>
-                <input type='text' id='formcontato-nome' name='nome' className={styles.form__input} placeholder='André Lisboa' />
+          <li>
+            <Link href="">
+              <a>Programa fidelidade</a>
+            </Link>
+          </li>
 
-                <textarea name='mensagem' className={styles.form__textarea} placeholder='Escreva sua mensagem' />
+          <li>
+            <Link href="">
+              <a>Nossas lojas</a>
+            </Link>
+          </li>
 
-                <Botao
-                    type='submit'
-                    onClick={() => { }}
-                >
-                    Enviar Mensagem
-                </Botao>
-            </form>
+          <li>
+            <Link href="">
+              <a>Quero ser franqueado</a>
+            </Link>
+          </li>
 
-        </footer>
-    )
+          <li>
+            <Link href="">
+              <a>Anuncie aqui</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <form
+        className={styles.footer__formcontato}
+        onSubmit={handleSubmitMensagem}
+      >
+        { mensagem }
+
+        <h3 className={styles.form__titulo}>Fale Conosco</h3>
+
+        <label htmlFor="formcontato-nome" className={styles.form__label}>
+          Nome
+        </label>
+        <input
+          type="text"
+          id="formcontato-nome"
+          name="nome"
+          className={styles.form__input}
+          placeholder="André Lisboa"
+          onChange={handleChangeNome}
+        />
+
+        {nomeValidated || nomeValidated == null ? (
+          ""
+        ) : (
+          <p className={styles.error}>
+            O nome deve conter entre 2 e 40 caracteres.
+          </p>
+        )}
+
+        <textarea
+          name="mensagem"
+          id="formcontato-texto"
+          className={styles.form__textarea}
+          placeholder="Escreva sua mensagem"
+          onChange={handleChangeText}
+        />
+
+        {mensagemValidated || mensagemValidated == null ? (
+          ""
+        ) : (
+          <p className={styles.error}>
+            A mensagem deve conter entre 2 e 120 caracteres.
+          </p>
+        )}
+
+        <Botao type="submit" onClick={() => {}} disabled={!formValidated}>
+          {loading ? <div className="loading"><FaSpinner size={24} /></div> : 'Enviar Mensagem'}
+        </Botao>
+      </form>
+    </footer>
+  );
 }
 
 export default Footer;
