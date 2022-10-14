@@ -1,11 +1,13 @@
 .header {
     width: 100%;
-    padding: 0 1.2rem;
-    height: 5rem;
+    padding: 0.2rem 1.2rem;
+    height: fit-content;
+    min-height: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--cor-texto-secundaria);
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -15,11 +17,13 @@
 @media screen and (min-width: 481px) {
     .header {
         padding: 0 2.3rem;
+        flex-wrap: nowrap;
     }
 }
 
 @media screen and (min-width: 769px) {
     .header {
         padding: 0 9.5rem;
+        flex-wrap: nowrap;
     }
 }

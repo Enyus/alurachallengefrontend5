@@ -40,6 +40,11 @@ button {
   animation: loading 2s infinite;
 }
 
+input.input__mobile{
+  display: block;
+  margin: 0.5rem auto;
+}
+
 @keyframes loading {
   from {
     transform: rotate(0deg);
