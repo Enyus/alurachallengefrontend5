@@ -17,6 +17,7 @@ Decidi fazer o desafio usando ReactJs e NextJs.
 
 - **Semana 1:** Elaborar a Página Home da Alura Geek. ✅
 ![preview Home](https://i.imgur.com/3gr5Nn4.jpg)
+
 - **Semana 2:** Elaborar as páginas Login, Todos os Produtos, Adicionar Produto e Página Produto
 <table>
     <tr>
@@ -37,5 +38,31 @@ Decidi fazer o desafio usando ReactJs e NextJs.
     </tr>
 </table>
  
-- **Semana 3:** 
-- **Semana 4:** 
+- **Semanas 3 e 4:** Tornar o Login funcional, Usar API para listar produtos, Tornar Barra de Pesquisa Funcional, Validação do Formulário Fale Conosco, Tornar Funcional o Formulário Adicionar Produto e Tornar Funcional o Botão 'Ver Tudo'.
+
+<table>
+    <tr>
+        <th>Login Funcional</th>
+        <th>API para Listar Produtos</th>
+    </tr>
+    <tr>
+        <td><img src='https://media.giphy.com/media/foAQhQWBr0PEyEU8mv/giphy.gif' alt='login funcionando'></td>
+        <td><img src='https://media.giphy.com/media/68yWHfjeQCbCczOtdS/giphy.gif' alt='listar produtos com API'></td>
+    </tr>
+    <tr>
+        <th>Barra de Pesquisa Funcional</th>
+        <th>Formulário Fale Conosco</th>
+    </tr>
+    <tr>
+        <td>WIP</td>
+        <td>WIP</td>
+    </tr>
+    <tr>
+        <th>Adicionar Produto</th>
+        <th>Ver Tudo</th>
+    </tr>
+    <tr>
+        <td>WIP</td>
+        <td>WIP</td>
+    </tr>
+</table>
