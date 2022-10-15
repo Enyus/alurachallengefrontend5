@@ -29,6 +29,12 @@ function CardProduto(props) {
     );
   }
 
+  var formatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+  });
+
   return (
     <div className={styles.card__container}>
       {mostrarOpcoesAdm}
@@ -41,7 +47,7 @@ function CardProduto(props) {
         <h3 className={styles.card__text}>{props.nome}</h3>
 
         <p className={styles.card__preco}>
-          R$ {(props.preco / 100).toFixed(2)}
+          {formatter.format(props.preco / 100)}
         </p>
 
         <Link href={`/produto/${props.idProduto}`}>

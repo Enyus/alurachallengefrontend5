@@ -62,7 +62,7 @@ Decidi fazer o desafio usando ReactJs e NextJs.
         <th>Ver Tudo</th>
     </tr>
     <tr>
-        <td><img src='https://media.giphy.com/media/XQVz02C6mV4AX88t0W/giphy-downsized-large.gif' alt='funcionalidade Adicionar Produto'></td>
+        <td><img src='https://media.giphy.com/media/1RlbjU8eHLphFy95C9/giphy.gif' alt='funcionalidade Adicionar Produto'></td>
         <td><img src='https://media.giphy.com/media/1O7R7kaOcrfgr423CF/giphy.gif' alt='botao Ver Tudo'></td>
     </tr>
 </table>

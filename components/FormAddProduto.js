@@ -29,6 +29,7 @@ export default function FormAddProduto(props) {
       .getElementById("preco")
       .value.replace("R$", "")
       .replace(",", "")
+      .replace(".", "")
       .replace(/\s/g, "");
     const descricao = document.getElementById("descricao").value;
 
@@ -103,22 +104,18 @@ export default function FormAddProduto(props) {
     style: "currency",
     currency: "BRL",
     minimumFractionDigits: 2,
-
-    // These options are needed to round to whole numbers if that's what you want.
-    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
   });
 
   const formatPreco = (event) => {
     const key = event.key;
-    let value = event.target.value;
+    let value = event.target.value.replace(",", ".");
     if (isNaN(value)) {
       setPrecoValidated(false);
       return;
     }
     if (value != "") {
       event.target.value = formatter.format(
-        parseFloat(value.replace(",", "."))
+        parseFloat(value)
       );
     } else {
       setPrecoValidated(null);
