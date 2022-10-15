@@ -40,6 +40,15 @@
     width: 100%;
 }
 
+.botao__vermelho {
+    background-color: #ff6961;
+    margin-top: 1rem;
+}
+
+.botao__vermelho:hover {
+    background-color: red;
+}
+
 @media screen and (min-width: 769px) {
     .botao__parciallargo {
         width: 100%;

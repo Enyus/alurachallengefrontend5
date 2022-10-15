@@ -13,6 +13,9 @@ function Botao(props) {
         case 'styleless':
             estiloBotao = styles.botao__zero;
             break;
+        case 'vermelho':
+            estiloBotao = styles.botao__opaco + ' ' + styles.botao__vermelho;
+            break;
         default:
             estiloBotao = styles.botao__opaco;
     }

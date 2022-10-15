@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from './_app';
 
 import Head from 'next/head';
 import Header from '../components/Header';
@@ -10,6 +11,7 @@ import Dev from '../components/Dev';
 import styles from '../styles/Home.module.css';
 
 export default function Produtos() {
+    const {user} = useContext(UserContext);
 
     return (
         <div className={styles.container}>
@@ -23,7 +25,7 @@ export default function Produtos() {
 
             <Main>
 
-                <FormAddProduto />
+                { user == '' ? <p>Você não está cadastrado, faça Login.</p> : <FormAddProduto />}
 
             </Main>
 

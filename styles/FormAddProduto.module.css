@@ -26,7 +26,7 @@
 .form__input {
     width: 100%;
     font-size: 1.2rem;
-    height: 2.9rem;
+    height: 3.1rem;
     margin-bottom: 1.2rem;
     padding: 0.8rem;
     border: none;
@@ -53,4 +53,20 @@
     font-weight: 400;
     resize: none;
     margin-bottom: 1.2rem;
+}
+
+.imagem__checada {
+    max-width: 20rem;
+    max-height: 20rem;
+    margin: 0 auto;
+}
+
+.checked::after {
+    content: '✓';
+    color: green;
+    margin-left: 0.5rem;
+}
+
+.erro {
+    color: red;
 }
