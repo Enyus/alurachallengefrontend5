@@ -54,8 +54,8 @@ Decidi fazer o desafio usando ReactJs e NextJs.
         <th>Formulário Fale Conosco</th>
     </tr>
     <tr>
-        <td>WIP</td>
-        <td>WIP</td>
+        <td><img src='https://media.giphy.com/media/FLYIMhGoYrEW8a4aHA/giphy.gif' alt='pesquisa funcional'></td>
+        <td><img src='https://media.giphy.com/media/SdDanoNpd8GlqEUB3S/giphy.gif' alt='formulário fale conosco'></td>
     </tr>
     <tr>
         <th>Adicionar Produto</th>
