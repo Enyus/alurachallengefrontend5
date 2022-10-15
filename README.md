@@ -63,6 +63,6 @@ Decidi fazer o desafio usando ReactJs e NextJs.
     </tr>
     <tr>
         <td>WIP</td>
-        <td>WIP</td>
+        <td><img src='https://media.giphy.com/media/1O7R7kaOcrfgr423CF/giphy.gif' alt='botao Ver Tudo'></td>
     </tr>
 </table>

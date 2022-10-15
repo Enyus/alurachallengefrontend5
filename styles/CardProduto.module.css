@@ -5,6 +5,7 @@
 
 .card__img {
     width: 100%;
+    cursor: pointer;
 }
 
 .card__text {

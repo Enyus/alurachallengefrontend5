@@ -74,9 +74,14 @@ function ListaProdutos(props) {
     // Função para filtrar os produtos por categoria, se necessário
     function handleMostrarProdutos() {
         let produtosMostrados
+        let categoria = props.categoria
 
-        if (props.categoria != '') {
-            produtosMostrados = produtos.filter(produto => produto.categoria == props.categoria);
+        if (props.busca && props.busca.indexOf('cat:') == 0) {
+            categoria = props.busca.slice(4)
+        } 
+
+        if (categoria != '') {
+            produtosMostrados = produtos.filter(produto => produto.categoria == categoria);
 
             if (props.filtrar) {
                 let indiceFiltrado = produtosMostrados.findIndex(produto => produto.id == props.filtrar);
