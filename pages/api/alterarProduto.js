@@ -14,7 +14,7 @@ export default async function cadastrarProduto(req, res) {
         .eq('id', id)
         .select();
 
-    console.log(data);
+    // console.log(data);
     // console.log(error);
 
     if (error) {
@@ -22,20 +22,17 @@ export default async function cadastrarProduto(req, res) {
         return res.status(401).json( {error: error.message} )
     }
 
-    // let {data2, error2} = await supabase
-    //     .from('imagens')
-    //     .insert([{
-    //         produto_id: id,
-    //         url: urlImagem
-    //     },{
-    //         produto_id: id,
-    //         url: urlImagem
-    //     }]);
+    let {error2} = await supabase
+        .from('imagens')
+        .update({
+            url: urlImagem
+        })
+        .eq('produto_id', id);
     
-    // if (error2) {
-    //     console.log(error);
-    //     return res.status(401).json( {error: error.message} )
-    // }
+    if (error2) {
+        console.log(error2);
+        return res.status(401).json( {error: error2.message} )
+    }
 
     return res.status(200).json({ data })
 }
