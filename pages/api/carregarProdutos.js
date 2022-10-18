@@ -5,6 +5,8 @@ export default async function carregarProdutos(req, res) {
     let { data, error } = await supabase
         .from('produtos')
         .select('*, imagens(url)')
+        .is('deleted_at', null)
+        .order('id', { ascending: true})
 
     // console.log(data); // [] se não achar
     // console.log(error); // null se não achar

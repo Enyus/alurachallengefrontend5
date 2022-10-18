@@ -41,3 +41,47 @@ div.card__container div.opcoesadm__container {
     border: none;
     background: none;
 }
+
+.modal__container {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 20%;
+    min-width: 250px;
+    background-color: var(--cor-texto-secundaria);
+    padding: 2rem;
+    border: 5px solid red;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.modal__titulo {
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.modal__produto {
+    font-weight: 700;
+}
+
+.modal__confirmar {
+    background-color: red;
+    color: var(--cor-texto-secundaria);
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.modal__cancelar {
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-botao-principal);
+    font-weight: 700;
+    border: 2px solid var(--cor-botao-principal);
+    border-radius: 10px;
+    height: 2rem;
+}

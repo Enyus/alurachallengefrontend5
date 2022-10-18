@@ -1,7 +1,7 @@
 import { supabase } from "../../utils/supaBaseClient";
 import usuarios from "../../fakeDB/usuarios"
 
-export default async function carregarProdutos(req, res) {
+export default async function cadastrarUsuario(req, res) {
     const {email, user, password} = req.body;
 
     let { data, error } = await supabase

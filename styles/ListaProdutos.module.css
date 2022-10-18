@@ -19,6 +19,7 @@
     grid-template-columns: repeat(2, 1fr);
     flex-wrap: wrap;
     gap: 1.1rem;
+    align-items: baseline;
 }
 
 .lista__produtos.show__all div {

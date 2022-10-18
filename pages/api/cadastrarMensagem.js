@@ -1,6 +1,6 @@
 import { supabase } from "../../utils/supaBaseClient";
 
-export default async function carregarProdutos(req, res) {
+export default async function cadastrarMensagem(req, res) {
     const {nome, message} = req.body;
 
     let { data, error } = await supabase
