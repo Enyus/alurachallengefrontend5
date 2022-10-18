@@ -18,7 +18,7 @@ export default async function login(req, res) {
         data = usuarios.filter( usuario => usuario.email == email);
     }
 
-    console.log(data)
+    // console.log(data)
 
     if( data.length < 1 || data[0].senha != password) {
         data = []

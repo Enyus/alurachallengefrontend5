@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Router from "next/router";
 
 import Botao from "./Botao";
@@ -6,7 +6,7 @@ import { FaSpinner } from "react-icons/fa";
 
 import styles from "../styles/FormAddProduto.module.css";
 import { validateProduto } from "../utils/validateProduto";
-import { validateDescricao } from "../utils/validateProduto copy";
+import { validateDescricao } from "../utils/validateDescricao";
 
 export default function FormAddProduto(props) {
   const [loading, setLoading] = useState(false);
@@ -17,6 +17,46 @@ export default function FormAddProduto(props) {
   const [precoValidated, setPrecoValidated] = useState(null);
   const [descricaoValidated, setDescricaoValidated] = useState(null);
   const [formValidated, setFormValidated] = useState(false);
+
+  useEffect(() => {
+    if(typeof(props.alterar)=='undefined') {
+      return
+    }
+
+    setLoading(true);
+
+    const res = async () => {
+      const data = await fetch("/api/carregarProdutoUnico", {
+        body: JSON.stringify({
+          id: props.alterar.id
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+
+      const json = await data.json();
+      
+      // console.log(json)
+
+      document.getElementById('urlimagem').value = json.data[0].imagens[0].url;
+      setCheckingImage(true);
+      document.getElementById('nome-produto').value = json.data[0].produto;
+      setProdutoValidated(validateProduto(json.data[0].produto));
+      document.getElementById('preco').value = formatter.format(parseFloat(json.data[0].preco/100));
+      setPrecoValidated(true);
+      document.getElementById('categoria').value = json.data[0].categoria;
+      setCategoriaValidated(true);
+      document.getElementById('descricao').value = json.data[0].descricao;
+      setDescricaoValidated(validateDescricao(json.data[0].descricao));
+      checkFormValidation();
+    };
+
+    const result = res().catch(console.error);
+
+    setLoading(false);
+  }, []);
 
   async function handleSubmitProduto(event) {
     event.preventDefault();
@@ -32,12 +72,6 @@ export default function FormAddProduto(props) {
       .replace(".", "")
       .replace(/\s/g, "");
     const descricao = document.getElementById("descricao").value;
-
-    // console.log(urlImagem);
-    // console.log(categoria);
-    // console.log(produto);
-    // console.log(preco);
-    // console.log(descricao);
 
     // Enviando para o Banco de Dados:
     const res = await fetch("/api/cadastrarProduto", {
@@ -65,6 +99,51 @@ export default function FormAddProduto(props) {
 
     setLoading(false);
     Router.push("produtos");
+  }
+
+  const handleAlterarProduto = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    const id = props.alterar.id;
+    const urlImagem = document.getElementById("urlimagem").value;
+    const categoria = document.getElementById("categoria").value;
+    const produto = document.getElementById("nome-produto").value;
+    const preco = document
+      .getElementById("preco")
+      .value.replace("R$", "")
+      .replace(",", "")
+      .replace(".", "")
+      .replace(/\s/g, "");
+    const descricao = document.getElementById("descricao").value;
+
+    // Enviando para o Banco de Dados:
+    const res = await fetch("/api/alterarProduto", {
+      body: JSON.stringify({
+        id,
+        urlImagem,
+        categoria,
+        produto,
+        preco,
+        descricao,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const result = await res.json();
+
+    // console.log(result);
+
+    if (result.error) {
+      console.log(result.error);
+      return;
+    }
+
+    setLoading(false);
+    Router.push(`/produto/${id}`);
   }
 
   const checkImage = (event) => {
@@ -114,9 +193,7 @@ export default function FormAddProduto(props) {
       return;
     }
     if (value != "") {
-      event.target.value = formatter.format(
-        parseFloat(value)
-      );
+      event.target.value = formatter.format(parseFloat(value));
     } else {
       setPrecoValidated(null);
       return;
@@ -140,11 +217,13 @@ export default function FormAddProduto(props) {
 
   return (
     <form
-      onSubmit={handleSubmitProduto}
+      onSubmit={typeof(props.alterar)=='undefined'? handleSubmitProduto : handleAlterarProduto}
       className={styles.form__container}
       onClick={checkFormValidation}
     >
-      <h2 className={styles.form__titulo}>Adicionar novo produto</h2>
+      <h2 className={styles.form__titulo}>
+        {typeof(props.alterar)=='undefined' ? 'Adicionar Produto' : 'Alterar produto'}
+      </h2>
 
       <label
         htmlFor="urlimagem"
@@ -301,7 +380,7 @@ export default function FormAddProduto(props) {
             <FaSpinner size={24} />
           </div>
         ) : (
-          "Adicionar Produto"
+          typeof(props.alterar)=='undefined' ? 'Adicionar Produto' : 'Alterar produto'
         )}
       </Botao>
 

@@ -38,7 +38,7 @@ function ListaProdutos(props) {
 
     // Qual botão será renderizado:
     function handleButtonAddProduto() {
-        console.log('clicou em Adicionar Produto');
+        // console.log('clicou em Adicionar Produto');
 
         Router.push('addProduto')
     }

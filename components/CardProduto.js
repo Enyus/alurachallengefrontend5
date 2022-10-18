@@ -44,7 +44,7 @@ function CardProduto(props) {
   if (user != "") {
     mostrarOpcoesAdm = (
       <div className={styles.opcoesadm__container}>
-        <Link href="#">
+        <Link href={`/alterarProduto/${props.idProduto}`}>
           <button className={styles.opcoesadm__botao}>
             <FaPen size={24} color="#FFF" />
           </button>

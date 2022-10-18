@@ -39,7 +39,7 @@ export default function FormLogin(props) {
 
     const result = await res.json();
 
-    console.log(result);
+    // console.log(result);
 
     setLoading(false);
 
