@@ -75,7 +75,7 @@ Decidi fazer o desafio usando ReactJs e NextJs.
         <th>Alterar Produto</th>
     </tr>
     <tr>
-        <td><img src='https://media.giphy.com/media/VWQm8vX6EIcUCtbbfB/giphy.gif' alt='excluir produto'></td>
+       
         <td><img src='https://media.giphy.com/media/tCwuu62fvAYpWk3Ffh/giphy.gif' alt='alterar produto'></td>
     </tr>
 </table>
